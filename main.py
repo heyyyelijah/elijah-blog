@@ -118,12 +118,11 @@ def get_all_posts():
     try:
         # print(User.query.get(current_user.get_id()))
         # print(User.query.get(current_user.get_id()).name)
-        pass
+        posts = BlogPost.query.all()
+        user_id = current_user.get_id()
     except AttributeError:
         # print(User.query.get(current_user.get_id()))
         pass
-    posts = BlogPost.query.all()
-    user_id = current_user.get_id()
     return render_template("index.html",
                            all_posts=posts,
                            logged_out=logged_out,
